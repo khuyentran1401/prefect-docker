@@ -1,5 +1,5 @@
 datapane==0.15.1
 plotly==5.10.0
-prefect==2.3.0
+prefect>=2.3.1
 prefect_shell==0.1.1
 pytrends==4.8.0

@@ -4,13 +4,12 @@ from prefect import flow, task
 
 
 @flow
-def create_pytrends_report(keyword: str, start_date: str, num_countries: int):
+def create_pytrends_report(
+    keyword: str = "COVID", start_date: str = "2020-01-01", num_countries: int = 10
+):
     report_components = get_keywords_stats(keyword, start_date, num_countries)
     create_report(report_components, keyword)
 
 
 if __name__ == "__main__":
-    keyword = "COVID"
-    start_date = '2020-01-01'
-    num_countries = 10
-    create_pytrends_report(keyword, start_date, num_countries)
+    create_pytrends_report()

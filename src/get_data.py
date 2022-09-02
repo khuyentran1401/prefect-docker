@@ -8,12 +8,7 @@ from datetime import timedelta
 import datapane as dp
 
 
-@task(
-    cache_key_fn=task_input_hash,
-    cache_expiration=timedelta(days=1),
-    retries=3,
-    retry_delay_seconds=10,
-)
+@task(retries=3, retry_delay_seconds=10)
 def get_pytrends(keyword: str):
     pytrends = TrendReq(hl="en-US", tz=360)
     pytrends.build_payload([keyword])
