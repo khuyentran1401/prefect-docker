@@ -1,7 +1,7 @@
 ###
 ### A complete description of a Prefect Deployment for flow 'create-pytrends-report'
 ###
-name: google-trends-gh
+name: google-trends-gh-docker-custom
 description: null
 version: 016cebf984aa16eeed8280fce0d2172e
 # The work queue that will handle this deployment's runs
@@ -10,8 +10,14 @@ tags: []
 parameters: {}
 schedule: null
 infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: create-pytrends-report
+manifest_path: null
 infrastructure:
-  type: process
+  type: docker-container
   env: {}
   labels: {}
   name: null
@@ -19,14 +25,18 @@ infrastructure:
   - python
   - -m
   - prefect.engine
+  image: khuyentran1401/google-trends:first
+  image_pull_policy: null
+  image_registry: null
+  networks: []
+  network_mode: null
+  auto_remove: false
+  volumes: []
   stream_output: true
-  _block_type_slug: process
-
-###
-### DO NOT EDIT BELOW THIS LINE
-###
-flow_name: create-pytrends-report
-manifest_path: null
+  _block_document_id: 985b5f19-76b4-49b4-bc96-7a20e552c9ce
+  _block_document_name: google-trends-custom-image
+  _is_anonymous: false
+  _block_type_slug: docker-container
 storage:
   repository: https://github.com/khuyentran1401/prefect-docker
   reference: master
