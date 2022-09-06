@@ -1,6 +1,6 @@
 from get_data import get_keywords_stats
 from create_report import create_report
-from prefect import flow, task
+from prefect import flow
 
 
 @flow

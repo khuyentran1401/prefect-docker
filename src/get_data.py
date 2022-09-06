@@ -1,10 +1,6 @@
-from ast import keyword
-from time import time
 from pytrends.request import TrendReq
 from prefect import flow, task
 import plotly.express as px
-from prefect.tasks import task_input_hash
-from datetime import timedelta
 import datapane as dp
 
 
