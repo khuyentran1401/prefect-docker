@@ -19,7 +19,7 @@ def login_into_datapane():
 
 
 @task
-def create_report(report_elements: list, keyword: str):
+def upload_report(report_elements: list, keyword: str):
     dp.Report(*report_elements).upload(
         name=f"{keyword.title()} Report", publicly_visible=True
     )
@@ -28,4 +28,4 @@ def create_report(report_elements: list, keyword: str):
 @flow(name="Create a Report")
 def create_report(report_elements: list, keyword: str):
     login_into_datapane()
-    create_report(report_elements, keyword)
+    upload_report(report_elements, keyword)
