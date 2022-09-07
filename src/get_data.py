@@ -34,7 +34,7 @@ def get_related_queries(pytrends: TrendReq, keyword: str):
     return [dp.Text(f"# Related Queries to {keyword}"), dp.Plot(fig)]
 
 
-@flow
+@flow(name="Get Google Trends for a Keyword")
 def get_keywords_stats(keyword: str, start_date: str, num_countries: int):
     pytrends = get_pytrends(keyword)
     interest_over_time = get_interest_overtime(pytrends, keyword, start_date)

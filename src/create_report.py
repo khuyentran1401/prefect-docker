@@ -18,7 +18,14 @@ def login_into_datapane():
     return shell_run_command(f"datapane login --token {token}")
 
 
-@flow
+@task
+def create_report(report_elements: list, keyword: str):
+    dp.Report(*report_elements).upload(
+        name=f"{keyword.title()} Report", publicly_visible=True
+    )
+
+
+@flow(name="Create a Report")
 def create_report(report_elements: list, keyword: str):
     login_into_datapane()
-    dp.Report(*report_elements).upload(name=f"{keyword.title()} Report")
+    create_report(report_elements, keyword)

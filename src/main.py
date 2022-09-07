@@ -3,7 +3,7 @@ from create_report import create_report
 from prefect import flow
 
 
-@flow
+@flow(name="Create a Report for Google Trends")
 def create_pytrends_report(
     keyword: str = "COVID", start_date: str = "2020-01-01", num_countries: int = 10
 ):
