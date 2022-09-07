@@ -36,6 +36,7 @@ def get_related_queries(pytrends: TrendReq, keyword: str):
 
 @flow(name="Get Google Trends for a Keyword")
 def get_keywords_stats(keyword: str, start_date: str, num_countries: int):
+    """Get statistics of a keyword on Google Trends"""
     pytrends = get_pytrends(keyword)
     interest_over_time = get_interest_overtime(pytrends, keyword, start_date)
     interest_by_region = get_interest_by_region(pytrends, keyword, num_countries)
